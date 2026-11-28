@@ -44,7 +44,8 @@ const subtitleLocales = {
 	Chinese: 'zh-Hans',
 	TraditionalChinese: 'zh-Hant',
 	Japanese: 'ja',
-	Korean: 'ko'
+	Korean: 'ko',
+	Thai: 'th'
 };
 let isVoicelinePlaying = false;
 
@@ -62,21 +63,22 @@ const AUDIO_DETAIL = [
                 "ふっくらしていて……仕上がりが楽しみです。"
             ],
             English: [
-                "Fufu, it's frying nicely.",
-                "It looks so fluffy... I'm looking forward to the finished result."
+                "Fufu. Cooked to perfection.",
+                "The perfect puff. For the perfect slice of fried tofu!"
             ],
             Chinese: [
                 "呵呵，炸得色泽刚刚好呢。",
                 "蓬松饱满…… 真期待最后的成品。"
             ],
             TraditionalChinese: [
-                "呵呵，炸得色澤剛剛好呢。",
-                "蓬鬆飽滿…… 真期待最後的成品。"
+                "呵呵，炸得很漂亮呢。",
+                "圓圓鼓鼓的……真期待成品。"
             ],
             Korean: [
-                "후후, 잘 튀겨졌네요.",
-                "너무 푹신한 것 같아서 완성된 결과를 기대합니다."
-            ]
+                "후후, 잘 익었네요.",
+                "잘 부풀어 오른 것이, 좋은 유부가 될 것 같아요."
+            ],
+            Thai: ["ฮุฮุ สุกกำลังดีเลยนะคะ","อันที่อ้วนพองขึ้นมา น่าจะเป็นเต้าหู้ทอดที่ดีเลยค่ะ"]
         }
     },
     {
@@ -85,41 +87,43 @@ const AUDIO_DETAIL = [
                 "あ、まだダメですよ。"
             ],
             English: [
-                "Ah, not yet."
+                "Ah, it's not ready yet."
             ],
             Chinese: [
                 "啊，现在还不能吃哦。"
             ],
             TraditionalChinese: [
-                "啊，現在還不能吃哦。"
+                "啊，現在還不行哦。"
             ],
             Korean: [
-                "아, 아직은 아냐"
-            ]
+                "아, 아직은 안 돼요."
+            ],
+            Thai: ["อ๊ะ ยังไม่ได้ค่ะ"]
         }
     },
     {
         dialog: {
             Japanese: [
                 "この後、もう1回揚げるんですから。",
-                "最初は低い温度で。次に高い温度で揚げると、水分が抜けて美味しい揚げになるんです。"
+                "最初は低い温度で。次に高い温度で揚げると、水分が抜けて美味しい油揚げになるんです。"
             ],
             English: [
-                "I'm going to fry them once more after this.",
-                "First at a low temperature, then at a higher one. That way, the moisture is removed and it becomes a delicious fry."
+                "I'll need to fry it again a little more later.",
+                "It needs to be fried at a lower temperature, and then again at a higher one. That'll ensure all the moisture is removed, creating the perfect deep-fried tofu!"
             ],
             Chinese: [
                 "之后还要再复炸一次才行。",
                 "先用低温慢炸，再换成高温速炸，就能逼出多余水分，做出美味的油炸豆皮。"
             ],
             TraditionalChinese: [
-                "之後還要再復炸一次才行。",
-                "先用低溫慢炸，再換成高溫速炸，就能逼出多餘水分，做出美味的油炸豆皮。"
+                "因為等一下還要再炸一次呢。",
+                "先用低溫炸過。接著再用高溫油炸……水分就會散去變成美味的炸豆皮。"
             ],
             Korean: [
-                "이 후 다시 튀겨 먹게 될 거야",
-                "먼저 낮은 온도에서, 그 다음 더 높은 온도에서 습기가 제거되어 맛있는 프라이가 됩니다."
-            ]
+                "이 뒤에 한 번 더 튀겨야 하거든요.",
+                "처음에는 낮은 온도에서, 그리고 높은 온도에서 한 번 더 튀겨야만 수분이 모두 빠져서, 맛있는 유부가 된답니다."
+            ],
+            Thai: ["ยังต้องเอาไปทอด อีกครั้งหนึ่งค่ะ","ตอนแรกต้องใช้ไฟต่ำ แล้วค่อยมาทอดใน ไฟสูงอีกครั้ง ความชื้นจะได้หายไปหมด จนเป็นเต้าหู้ทอดที่อร่อยค่ะ"]
         }
     },
     {
@@ -129,21 +133,22 @@ const AUDIO_DETAIL = [
                 "それこそ昔は、1年の豊作と安寧を願うお供え物だったんだとか。"
             ],
             English: [
-                "Actually, aburaage is a dish that takes a lot of time and effort.",
-                "I heard that in the past, it was used as an offering to pray for a bountiful harvest and peace for the year."
+                "Yes. Deep-fried tofu slices take a lot of time and effort.",
+                "That's why they were offered when praying for good health and a rich harvest."
             ],
             Chinese: [
                 "油炸豆皮这道菜，其实格外耗费时间与功夫。",
                 "听说在古时候，它还是用来祈求一年丰收与安稳的供品。"
             ],
             TraditionalChinese: [
-                "油炸豆皮這道菜，其實格外耗費時間與功夫。",
-                "聽說在古時候，它還是用來祈求一年豐收與安穩的供品。"
+                "炸豆皮其實是一道非常費時又費工的料理哦。",
+                "因此據說在以前，還是祈求一年豐收與安寧的供品呢。"
             ],
             Korean: [
-                "사실, 아부라지는 많은 시간과 노력을 필요로 하는 음식입니다.",
-                "과거에는, 풍요로운 수확과 해의 평화를 위해 기도하는 제물로 사용되었다고 들었습니다."
-            ]
+                "네. 유부는 정말 시간과 손이 많이 드는 요리예요.",
+                "그래서 옛날에는 한 해의 풍작과 안녕을 빌기 위한 공물로 유부를 만들었다고 해요."
+            ],
+            Thai: ["ค่ะ เต้าหู้ทอดเป็นอาหารที่ต้องใช้ เวลาและความพยายามมากค่ะ","ได้ยินว่าสมัยก่อนก็เลยทำเต้าหู้ทอด เพื่ออธิษฐานขอความอุดมสมบูรณ์ และความสุขสวัสดีกันค่ะ"]
         }
     },
     {
@@ -153,21 +158,22 @@ const AUDIO_DETAIL = [
                 "油揚げに込めた私の気持ちが伝わってくれたら……嬉しいですね。"
             ],
             English: [
-                "My wish is for everyone around me to be happy and live in peace.",
-                "I would be glad... if the feelings I put into this aburaage could reach you."
+                "All I wish for is the happiness and well-being of those around me.",
+                "And if that feeling, packed into this dish, reaches them... I'd be very happy."
             ],
             Chinese: [
                 "我的愿望，是希望身边所有人都能幸福、安稳度日。",
                 "若是这份寄托在豆皮里的心意，能够传达出去…… 那就太好了。"
             ],
             TraditionalChinese: [
-                "我的願望，是希望身邊所有人都能幸福、安穩度日。",
-                "若是這份寄託在豆皮裡的心意，能夠傳達出去…… 那就太好了。"
+                "我的願望是，希望身邊的大家都能幸福，平平安安地度過每一天。",
+                "如果我傾注在炸豆皮裡的心意能傳達出去的話……那就太好了。"
             ],
             Korean: [
-                "내 소망은 내 주변 모든 사람들이 행복하고 평화롭게 살아가길 바랍니다.",
-                "내가 이 괴로움을 겪은 감정이 당신에게 닿으면 기쁘다."
-            ]
+                "제가 바라는 것은 오직 주변 사람들의 행복과 안녕뿐이지만.",
+                "이 유부에 눌러 담은 제 마음이 전해진다면…… 기쁘겠네요."
+            ],
+            Thai: ["ถึงฉันจะหวังเพียงความสุข และความสงบของผู้คนรอบตัวก็ตาม","ถ้าความรู้สึกของฉัน ส่งผ่านทางเต้าหู้ทอดนี้ได้... ก็คงน่าดีใจนะคะ"]
         }
     }
 ];
@@ -279,7 +285,7 @@ function playVoiceline() {
 			track.play().catch(finish);
 
 			if (dialogBox) {
-				textbox.textContent = dialog[window.selectedLanguage][index];
+				textbox.textContent = getSubtitleText(dialog, window.selectedLanguage, index);
 				textbox.style.opacity = 1;
 			}
 		},
@@ -453,6 +459,16 @@ function setMouse(event) {
 	return { x: ax - canvas.width * positionX, y: ay - canvas.height * positionY };
 }
 
+function getSubtitleText(dialog, language, index) {
+	let text = dialog?.[language]?.[index];
+	if (text == null && language === 'Thai') {
+		language = 'English';
+		text = dialog?.[language]?.[index];
+	}
+	textbox.lang = subtitleLocales[language];
+	return text ?? "";
+}
+
 function updateSubtitleLanguage() {
 	let language = subtitleLanguagePreference;
 	if (language === 'auto') {
@@ -466,6 +482,8 @@ function updateSubtitleLanguage() {
 			language = 'Japanese';
 		} else if (primary === 'ko' || primary === 'korean' || primary === 'koreana') {
 			language = 'Korean';
+		} else if (primary === 'th' || primary === 'thai') {
+			language = 'Thai';
 		} else {
 			language = 'English';
 		}
@@ -475,7 +493,7 @@ function updateSubtitleLanguage() {
 	window.selectedLanguage = language;
 	textbox.lang = subtitleLocales[language];
 	const clip = currentTracks.at(-1);
-	if (dialogBox && clip) textbox.textContent = clip.dialog[language][clip.index];
+	if (dialogBox && clip) textbox.textContent = getSubtitleText(clip.dialog, language, clip.index);
 }
 
 function init() {
